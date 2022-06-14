@@ -1,0 +1,21 @@
+{
+  // ESlintライブラリ解決時に使うパッケージマネージャ
+  "eslint.packageManager": "npm",
+  // 保存時にeslintのコードアクションを実行
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true, //eslint
+    "source.fixAll.stylelint": true //stylelint
+  },
+  // ESlintパスを指定
+  "eslint.workingDirectories": ["/app"],
+  // 標準コード整形機能をPrettierに
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 保存時に自動コード整形
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true
+  // // HTML標準コード整形機能をOFF
+  // "html.format.enable": false,
+  // // JS標準コード整形機能をoff
+  // "javascript.format.enable": false
+}

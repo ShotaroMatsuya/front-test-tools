@@ -10,9 +10,9 @@ services:
       - '3000:3000'
     volumes:
       # ローカルにバインドマウントしたくない場合
-      - /app/node_modules
+      # - /app/node_modules
       # ローカルにバインドマウントしたい場合
-      # - ./app/node_modules:/app/node_modules
+      - ./app/node_modules:/app/node_modules
       - ./app:/app
 
   npm:
@@ -24,9 +24,9 @@ services:
     volumes:
       - ./app:/app
       # ローカルにバインドマウントしたくない場合
-      - /app/node_modules
+      # - /app/node_modules
       # ローカルにバインドマウントしたい場合
-      # - ./app/node_modules:/app/node_modules
+      - ./app/node_modules:/app/node_modules
 
   # create-react-app
   create-react-app:
@@ -35,4 +35,3 @@ services:
     entrypoint: 'npx create-react-app app'
     volumes:
       - ./app:/app
-    # - ./app/node_modules:/app/node_modules
