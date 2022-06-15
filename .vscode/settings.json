@@ -7,7 +7,7 @@
     "source.fixAll.stylelint": true //stylelint
   },
   // ESlintパスを指定
-  "eslint.workingDirectories": ["/app"],
+  "eslint.workingDirectories": ["./app"],
   // 詳細表示
   "eslint.codeAction.showDocumentation": {
     "enable": true
