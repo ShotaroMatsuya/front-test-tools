@@ -8,14 +8,20 @@
   },
   // ESlintパスを指定
   "eslint.workingDirectories": ["/app"],
+  // 詳細表示
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  // status barの表示
+  "eslint.alwaysShowStatus": true,
   // 標準コード整形機能をPrettierに
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // 保存時に自動コード整形
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "editor.formatOnType": true
-  // // HTML標準コード整形機能をOFF
-  // "html.format.enable": false,
-  // // JS標準コード整形機能をoff
-  // "javascript.format.enable": false
+  "editor.formatOnType": true,
+  // HTML標準コード整形機能をOFF
+  "html.format.enable": false,
+  // JS標準コード整形機能をoff
+  "javascript.format.enable": false
 }
