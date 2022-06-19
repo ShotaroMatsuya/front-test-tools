@@ -25,6 +25,8 @@ services:
     volumes:
       - ./server/node_modules:/app/node_modules
       - ./server:/app
+    depends_on:
+      - front
 
   npm:
     build:
