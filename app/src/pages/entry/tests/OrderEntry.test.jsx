@@ -16,7 +16,7 @@ test('Handles error for scoops and toppings routes', async () => {
       res(ctx.status(500));
     })
   );
-  render(<OrderEntry />);
+  render(<OrderEntry setOrderPhase={jest.fn()} />);
   // const alerts = await screen.findAllByRole('alert', {
   //   name: 'An unexpected error ocurred. Please try again later.',
   // });
