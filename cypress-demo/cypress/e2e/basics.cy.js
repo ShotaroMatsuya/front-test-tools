@@ -42,5 +42,11 @@ describe('Login feature Test', () => {
     cy.get('li').eq(0);
 
     cy.get('li').filter('.web');
+
+    cy.get('.course-list .list1').next();
+    cy.get('.course-list .list3').prev();
+    cy.get('.course-list .list2').nextUntil('.list7');
+
+    cy.contains('Selenium'); // sensitive
   });
 });
