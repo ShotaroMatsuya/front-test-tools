@@ -35,5 +35,12 @@ describe('Login feature Test', () => {
     // cy.get('h1.main.header1'); //by class name
     cy.get('.course-list > .list1'); // get children dom 1
     cy.get('.course-list').children('.list1'); //get children dom 2
+    cy.get('.course-container').find('.list1');
+
+    cy.get('li').first();
+    cy.get('li').last();
+    cy.get('li').eq(0);
+
+    cy.get('li').filter('.web');
   });
 });
