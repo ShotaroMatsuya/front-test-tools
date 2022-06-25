@@ -48,5 +48,8 @@ describe('Login feature Test', () => {
     cy.get('.course-list .list2').nextUntil('.list7');
 
     cy.contains('Selenium'); // sensitive
+
+    cy.get('[data-cy="selenium-course"]');
+    cy.get('[type="email"]');
   });
 });
