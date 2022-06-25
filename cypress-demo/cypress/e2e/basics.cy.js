@@ -16,6 +16,7 @@ describe('Login feature Test', () => {
 
   it('should visit the login page correctly', () => {
     // cy.visit('https://example.cypress.io');
-    cy.visit('cypress/index.html');
+    // cy.visit('cypress/index.html');
+    cy.visit('/');
   });
 });
