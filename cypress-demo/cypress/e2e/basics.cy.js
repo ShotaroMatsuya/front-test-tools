@@ -4,15 +4,15 @@
 
 describe('Login feature Test', () => {
   // hooks
-  before(() => {
-    cy.log('Run the server locally');
-  });
-  after(() => {
-    cy.log('kill the server');
-  });
-  beforeEach(() => {
-    cy.log('navigate to login page');
-  });
+  // before(() => {
+  //   cy.log('Run the server locally');
+  // });
+  // after(() => {
+  //   cy.log('kill the server');
+  // });
+  // beforeEach(() => {
+  //   cy.log('navigate to login page');
+  // });
 
   it('should visit the login page correctly', () => {
     // cy.visit('https://example.cypress.io');
@@ -21,10 +21,15 @@ describe('Login feature Test', () => {
   });
 
   ['macbook-15', 'iphone-x'].forEach(size => {
-    it.only('should visit the login page correctly on ' + size, () => {
+    it('should visit the login page correctly on ' + size, () => {
       // cy.viewport(500, 750);
       cy.viewport(size);
       cy.visit('/');
+      cy.get('css selector');
     });
+  });
+
+  it.only('should visit the login page correctly on ', () => {
+    cy.visit('cypress/index.html');
   });
 });
