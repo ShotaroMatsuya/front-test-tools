@@ -19,4 +19,12 @@ describe('Login feature Test', () => {
     // cy.visit('cypress/index.html');
     cy.visit('/');
   });
+
+  ['macbook-15', 'iphone-x'].forEach(size => {
+    it.only('should visit the login page correctly on ' + size, () => {
+      // cy.viewport(500, 750);
+      cy.viewport(size);
+      cy.visit('/');
+    });
+  });
 });
