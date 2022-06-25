@@ -31,5 +31,9 @@ describe('Login feature Test', () => {
 
   it.only('should visit the login page correctly on ', () => {
     cy.visit('cypress/index.html');
+    // cy.get('#header1'); by id name
+    // cy.get('h1.main.header1'); //by class name
+    cy.get('.course-list > .list1'); // get children dom 1
+    cy.get('.course-list').children('.list1'); //get children dom 2
   });
 });
