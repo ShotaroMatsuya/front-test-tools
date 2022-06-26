@@ -2,7 +2,7 @@
 
 // Mocha
 
-describe('Visit Command', () => {
+describe.skip('Visit Command', () => {
   // hooks
   // before(() => {
   //   cy.log('Run the server locally');
@@ -31,7 +31,7 @@ describe('Visit Command', () => {
   });
 });
 
-describe('Cypress Selectors', () => {
+describe.skip('Cypress Selectors', () => {
   it('should visit the login page correctly on ', () => {
     cy.visit('cypress/index.html');
     // cy.get('#header1'); by id name
@@ -76,11 +76,16 @@ describe('Cypress Action', () => {
     cy.get('[name="coverdInput"]').type('hello', { force: true, delay: 1000 });
   });
 
-  it.only('challenge', () => {
+  it('challenge', () => {
     cy.visit('cypress/index.html');
 
     cy.get('[data-cy="email"]').type('test@gmail.com');
     cy.get('[data-cy="password"]').type('12345678');
     cy.get('[data-cy="login"]').click();
+  });
+
+  it.only('Select()', () => {
+    cy.visit('cypress/index.html');
+    cy.get('#courses').select('selenium');
   });
 });
