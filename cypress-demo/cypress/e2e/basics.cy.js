@@ -84,8 +84,16 @@ describe('Cypress Action', () => {
     cy.get('[data-cy="login"]').click();
   });
 
-  it.only('Select()', () => {
+  it('Select()', () => {
     cy.visit('cypress/index.html');
     cy.get('#courses').select('selenium');
+  });
+
+  it.only('check()', () => {
+    cy.visit('cypress/index.html');
+    cy.get('#Banana').check();
+    cy.get('#Banana').uncheck();
+
+    cy.get('[type="checkbox"]').check(['Banana', 'Fries']);
   });
 });
