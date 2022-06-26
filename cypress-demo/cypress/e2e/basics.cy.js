@@ -104,10 +104,16 @@ describe('Cypress Action', () => {
     cy.get('#inputEmail').clear();
   });
 
-  it.only('double click()', () => {
+  it('double click()', () => {
     cy.visit('cypress/index.html');
 
     cy.get('.magic-button').rightclick();
     cy.get('.magic-button').dblclick();
+  });
+  it.only('blur fucus()', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('.magic-input').focus();
+    cy.get('.magic-input').blur();
   });
 });
