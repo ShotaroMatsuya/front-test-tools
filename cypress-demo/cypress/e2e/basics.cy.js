@@ -68,11 +68,19 @@ describe('Cypress Action', () => {
     cy.get('.invoice-button').eq(0).click({ force: true });
   });
 
-  it.only('type()', () => {
+  it('type()', () => {
     cy.visit('cypress/index.html');
 
     cy.get('#inputEmail').type('expample@gmail.com');
 
     cy.get('[name="coverdInput"]').type('hello', { force: true, delay: 1000 });
+  });
+
+  it.only('challenge', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('[data-cy="email"]').type('test@gmail.com');
+    cy.get('[data-cy="password"]').type('12345678');
+    cy.get('[data-cy="login"]').click();
   });
 });
