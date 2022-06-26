@@ -2,7 +2,7 @@
 
 // Mocha
 
-describe('Login feature Test', () => {
+describe('Visit Command', () => {
   // hooks
   // before(() => {
   //   cy.log('Run the server locally');
@@ -17,19 +17,22 @@ describe('Login feature Test', () => {
   it('should visit the login page correctly', () => {
     // cy.visit('https://example.cypress.io');
     // cy.visit('cypress/index.html');
+    // set 'baseUrl' in cypress.config.js
     cy.visit('/');
   });
 
   ['macbook-15', 'iphone-x'].forEach(size => {
     it('should visit the login page correctly on ' + size, () => {
-      // cy.viewport(500, 750);
+      cy.viewport(500, 750);
       cy.viewport(size);
+      // set 'baseUrl' in cypress.config.js
       cy.visit('/');
-      cy.get('css selector');
     });
   });
+});
 
-  it.only('should visit the login page correctly on ', () => {
+describe('Cypress Selectors', () => {
+  it('should visit the login page correctly on ', () => {
     cy.visit('cypress/index.html');
     // cy.get('#header1'); by id name
     // cy.get('h1.main.header1'); //by class name
@@ -53,5 +56,15 @@ describe('Login feature Test', () => {
     cy.get('[type="email"]');
 
     cy.get('.list3', { timeout: 30000 });
+  });
+});
+
+describe('Cypress Action', () => {
+  it('click()', () => {
+    cy.visit('cypress/index.html');
+    cy.get('table .invoice-button').eq(0).click('top');
+    cy.get('table .invoice-button').click({ multiple: true });
+
+    cy.get('.invoice-button').eq(0).click({ force: true });
   });
 });
