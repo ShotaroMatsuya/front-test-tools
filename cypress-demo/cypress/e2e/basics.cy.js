@@ -117,7 +117,7 @@ describe('Cypress Action', () => {
     cy.get('.magic-input').blur();
   });
 
-  it.only('other actions', () => {
+  it('other actions', () => {
     cy.visit('cypress/index.html');
 
     cy.get('table .invoice-button').first().trigger('click');
@@ -126,5 +126,21 @@ describe('Cypress Action', () => {
     cy.get('.trigger-button').trigger('mousedown');
     cy.wait(5000);
     cy.get('.trigger-button').trigger('mouseup');
+  });
+});
+
+describe('Assertion', () => {
+  it('should have text', () => {
+    cy.visit('cypress/index.html');
+    cy.get('.course-list > .list1').should('have.text', 'Cypress');
+
+    cy.get('.course-list').should('have.contain', 'Cypress');
+  });
+
+  it.only('should be visible', () => {
+    cy.visit('cypress/index.html');
+    cy.get('.list10').should('have.text', 'sql');
+
+    cy.get('.list10').should('not.be.visible');
   });
 });
