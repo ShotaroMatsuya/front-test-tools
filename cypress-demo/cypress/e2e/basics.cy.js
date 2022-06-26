@@ -51,5 +51,7 @@ describe('Login feature Test', () => {
 
     cy.get('[data-cy="selenium-course"]');
     cy.get('[type="email"]');
+
+    cy.get('.list3', { timeout: 30000 });
   });
 });
