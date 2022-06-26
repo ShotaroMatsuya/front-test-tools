@@ -97,10 +97,17 @@ describe('Cypress Action', () => {
     cy.get('[type="checkbox"]').check(['Banana', 'Fries']);
   });
 
-  it.only('clear()', () => {
+  it('clear()', () => {
     cy.visit('cypress/index.html');
 
     cy.get('#inputEmail').type('test@gmail.com');
     cy.get('#inputEmail').clear();
+  });
+
+  it.only('double click()', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('.magic-button').rightclick();
+    cy.get('.magic-button').dblclick();
   });
 });
