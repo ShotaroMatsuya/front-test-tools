@@ -75,6 +75,7 @@
 <body>
     <h1 class="header1 main" id="header1">Welcome to Cypress Tutorials</h1>
     <h1 id="header2">We will use this website to learn cypress commands</h2>
+        <a href="about.html">About</a>
     <hr />
     <p>The available list of courses</p>
     <div class="course-container">
@@ -199,7 +200,7 @@
                     <h2 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h2>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>10 users included</li>
-                        <li>2 GB of storage</li>
+                        <li class="feature2">2 GB of storage</li>
                         <li>Email support</li>
                         <li>Help center access</li>
                     </ul>
@@ -214,7 +215,7 @@
                     <h2 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h2>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>20 users included</li>
-                        <li>10 GB of storage</li>
+                        <li class="feature2">10 GB of storage</li>
                         <li>Priority email support</li>
                         <li>Help center access</li>
                     </ul>
@@ -229,7 +230,7 @@
                     <h2 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h2>
                     <ul class="list-unstyled mt-3 mb-4">
                         <li>30 users included</li>
-                        <li>15 GB of storage</li>
+                        <li class="feature2">15 GB of storage</li>
                         <li>Phone and email support</li>
                         <li>Help center access</li>
                     </ul>
@@ -318,6 +319,17 @@
           <div style="margin: 10px 0">
             <img class="random-image" src="https://source.unsplash.com/user/erondu/900x900" alt="">
         </div>
+
+        Time section:
+        <h3 id="times"></h3>
+        <script>
+                const nowDate = new Date();
+                const month = nowDate.getMonth()
+                const year = nowDate.getFullYear()
+                const day = nowDate.getDate()
+                const timeSection  = document.getElementById('times');
+                timeSection.textContent = `${day}/${month}/${year}`;
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

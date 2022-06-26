@@ -195,3 +195,105 @@ describe('Assertion', () => {
     cy.get('#Banana').should('be.checked');
   });
 });
+
+describe('Cypress Command', () => {
+  it('url command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.url().should('contain', 'index.html');
+  });
+  it('title command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.title().should('eql', 'Cypress Tutorials');
+  });
+  it('go command', () => {
+    cy.visit('cypress/index.html');
+    cy.contains('About').click();
+
+    cy.go('back');
+    cy.go('forward');
+  });
+  it('cookies command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.setCookie('token', '1234567890');
+
+    cy.getCookie('token').should('have.property', 'value', '1234567890');
+
+    cy.getCookies().should('have.length', 1);
+  });
+  it('clock command', () => {
+    const now = new Date(2019, 3, 19).getTime();
+
+    cy.clock(now);
+
+    cy.visit('cypress/index.html');
+  });
+  it('wrap command', () => {
+    const car = {
+      color: 'red',
+      model: 2020,
+      isNew: true,
+      turnOn: () => {
+        return 'the car is on';
+      },
+    };
+
+    cy.visit('cypress/index.html');
+
+    cy.wrap(car).should('have.property', 'color', 'red');
+  });
+  it('its and invoke command', () => {
+    const car = {
+      color: 'red',
+      model: 2020,
+      isNew: true,
+      turnOn: () => {
+        return 'the car is on';
+      },
+    };
+
+    cy.visit('cypress/index.html');
+
+    cy.wrap(car).its('color');
+    cy.wrap(car).invoke('turnOn');
+
+    cy.get('.course-list').its('length');
+    cy.get('.course-list').invoke('text');
+  });
+  it('then command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.url().then(url => {
+      cy.log(url);
+    });
+  });
+  it('expect command', () => {
+    cy.visit('cypress/index.html');
+
+    const courses = [
+      { id: 1, title: 'cypress' },
+      { id: 2, title: 'selenium' },
+      { id: 3, title: 'appium' },
+    ];
+
+    cy.wrap(courses).then(course => {
+      expect(course).to.have.length(3);
+      expect(course[0].title).to.contains('cyp');
+    });
+
+    cy.url().then(url => {
+      expect(url).to.contains('index.html');
+    });
+  });
+  it.only('each command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('.feature2').each($element => {
+      cy.log($element.text());
+      expect($element.text()).to.contains('GB');
+      cy.wrap($element).should('contain', 'GB');
+    });
+  });
+});
