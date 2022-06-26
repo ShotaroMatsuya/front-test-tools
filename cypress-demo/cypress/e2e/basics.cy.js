@@ -89,11 +89,18 @@ describe('Cypress Action', () => {
     cy.get('#courses').select('selenium');
   });
 
-  it.only('check()', () => {
+  it('check()', () => {
     cy.visit('cypress/index.html');
     cy.get('#Banana').check();
     cy.get('#Banana').uncheck();
 
     cy.get('[type="checkbox"]').check(['Banana', 'Fries']);
+  });
+
+  it.only('clear()', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('#inputEmail').type('test@gmail.com');
+    cy.get('#inputEmail').clear();
   });
 });
