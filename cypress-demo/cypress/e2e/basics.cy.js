@@ -110,10 +110,21 @@ describe('Cypress Action', () => {
     cy.get('.magic-button').rightclick();
     cy.get('.magic-button').dblclick();
   });
-  it.only('blur fucus()', () => {
+  it('blur fucus()', () => {
     cy.visit('cypress/index.html');
 
     cy.get('.magic-input').focus();
     cy.get('.magic-input').blur();
+  });
+
+  it.only('other actions', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('table .invoice-button').first().trigger('click');
+    cy.get('.trigger-button').trigger('mouseover');
+    cy.get('.trigger-button').trigger('mouseout');
+    cy.get('.trigger-button').trigger('mousedown');
+    cy.wait(5000);
+    cy.get('.trigger-button').trigger('mouseup');
   });
 });
