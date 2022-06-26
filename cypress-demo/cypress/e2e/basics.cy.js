@@ -137,10 +137,61 @@ describe('Assertion', () => {
     cy.get('.course-list').should('have.contain', 'Cypress');
   });
 
-  it.only('should be visible', () => {
+  it('should be visible', () => {
     cy.visit('cypress/index.html');
     cy.get('.list10').should('have.text', 'sql');
 
     cy.get('.list10').should('not.be.visible');
+  });
+  it('should have class', () => {
+    cy.visit('cypress/index.html');
+    cy.get('#detox').should('have.class', 'mobile');
+  });
+  it('should have css', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('.trigger-button')
+      .trigger('mouseover')
+      .should('have.css', 'background-color', 'rgb(255, 0, 0)');
+    cy.get('.trigger-button')
+      .trigger('mouseover')
+      .should('have.css', 'background-color')
+      .and('eql', 'rgb(255, 0, 0)');
+  });
+  it('should be enabled', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('[data-cy="email"]').should('be.disabled');
+  });
+  it('should have an attribute', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('.random-image').should(
+      'have.attr',
+      'src',
+      'https://source.unsplash.com/user/erondu/900x900'
+    );
+    cy.get('.random-image')
+      .should('have.attr', 'src')
+      .and('eql', 'https://source.unsplash.com/user/erondu/900x900');
+  });
+
+  it('should have a value', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('#inputEmail')
+      .type('test@gmail.com')
+      .should('have.value', 'test@gmail.com');
+  });
+
+  it('exercise', () => {
+    cy.visit('cypress/index.html');
+
+    cy.get('#courses').select('selenium');
+    cy.get('[data-cy="selenium"]').should('be.selected');
+    cy.get('.magic-input').focus();
+    cy.get('.magic-input').should('be.focused');
+    cy.get('#Banana').check();
+    cy.get('#Banana').should('be.checked');
   });
 });

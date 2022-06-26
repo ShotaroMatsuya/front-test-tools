@@ -83,7 +83,7 @@
         <li class="list2 web" data-cy="selenium-course">Selenium</li>
         <li class="list3 mobile">Appium</li>
         <li class="list4 web mobile">wdio</li>
-        <li class="list5 mobile">detox</li>
+        <li id="detox" class="list5 mobile">detox</li>
         <li class="list6 programming">javascript</li>
         <li class="list7 web">html</li>
         <li class="list8 web">css</li>
@@ -126,7 +126,7 @@
 
     <select name="courses" id="courses">
         <option value="cypress">cypress</option>
-        <option value="selenium">selenium</option>
+        <option data-cy="selenium" value="selenium">selenium</option>
         <option value="appium">appium</option>
         <option value="wdio">wdio</option>
     </select>
@@ -242,7 +242,9 @@
         <form class="form-signin">
             <h2 class="h3 mb-3 font-weight-normal">Please sign in</h2>
             <label for="inputEmail" class="sr-only">Email address</label>
-            <input data-cy="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <input
+            
+            data-cy="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
             <label for="inputPassword" class="sr-only">Password</label>
             <input data-cy="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">
@@ -312,6 +314,10 @@
           <hr>
           <h1>Trigger playground</h1>
           <input value="Trigger" type="button" class="btn btn-primary trigger-button" onmouseover="this.style.backgroundColor='red'" onmouseout="this.style.backgroundColor='blue'" onmousedown="this.value='long press'" onmouseup="this.value='Trigger'" style="background-color: blue" />
+
+          <div style="margin: 10px 0">
+            <img class="random-image" src="https://source.unsplash.com/user/erondu/900x900" alt="">
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
