@@ -24,4 +24,6 @@
   "html.format.enable": false,
   // JS標準コード整形機能をoff
   "javascript.format.enable": false
+  // JSONの整形機能をoff
+  // "json.format.enable": false
 }

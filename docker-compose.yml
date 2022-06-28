@@ -48,3 +48,28 @@ services:
     entrypoint: 'npx create-react-app app'
     volumes:
       - ./app:/app
+
+  # First React App(Cypress)
+  first-react:
+    build:
+      context: ./api-request
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    entrypoint: 'npm run start:frontend'
+    volumes:
+      - ./api-request:/app
+      - ./api-request/node_modules:/app/node_modules
+    depends_on:
+      - first-server
+  first-server:
+    build:
+      context: ./api-request
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    entrypoint: 'npm run start:server'
+    volumes:
+      - ./api-request/db.json:/app/db.json
+      - ./api-request/routes.json:/app/routes.json
+      - ./api-request/node_modules:/app/node_modules
