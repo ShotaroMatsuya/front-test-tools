@@ -287,7 +287,7 @@ describe('Cypress Command', () => {
       expect(url).to.contains('index.html');
     });
   });
-  it.only('each command', () => {
+  it('each command', () => {
     cy.visit('cypress/index.html');
 
     cy.get('.feature2').each($element => {
@@ -295,5 +295,33 @@ describe('Cypress Command', () => {
       expect($element.text()).to.contains('GB');
       cy.wrap($element).should('contain', 'GB');
     });
+  });
+});
+
+describe('Cypress async and Variables', () => {
+  it('Async', () => {
+    let currentURL = '';
+    cy.visit('cypress/index.html');
+    cy.url().then(url => {
+      currentURL = url;
+      expect(currentURL).to.contains('index.html');
+    });
+  });
+  // if you want to use 'this' key words, make sure to define the functions using the 'function' keyword
+  it('Variable', function () {
+    cy.visit('cypress/index.html');
+    cy.url().as('url');
+    cy.get('@url');
+  });
+
+  beforeEach(() => {
+    cy.visit('cypress/index.html');
+    cy.url().as('url');
+  });
+  it.only('alias accessibility1', function () {
+    cy.log(this.url);
+  });
+  it.only('alias accessibility2', function () {
+    cy.log(this.url);
   });
 });
