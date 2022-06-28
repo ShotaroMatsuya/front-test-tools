@@ -318,10 +318,49 @@ describe('Cypress async and Variables', () => {
     cy.visit('cypress/index.html');
     cy.url().as('url');
   });
-  it.only('alias accessibility1', function () {
+  it('alias accessibility1', function () {
     cy.log(this.url);
   });
-  it.only('alias accessibility2', function () {
+  it('alias accessibility2', function () {
     cy.log(this.url);
+  });
+});
+
+describe('Fixtures in Cypress', () => {
+  it('fixtures intro', () => {
+    cy.visit('cypress/index.html');
+    cy.fixture('user').then(user => {
+      cy.log(user.email);
+    });
+  });
+  it('fill input by using fixtures', () => {
+    cy.visit('cypress/index.html');
+    cy.fixture('user').then(user => {
+      cy.get('#inputEmail').type(user.email);
+      cy.get('#inputPassword').type(user.password);
+    });
+  });
+
+  beforeEach(() => {
+    // cy.fixture('user').as('user');
+
+    // Update fixture data file before using them
+    cy.fixture('user')
+      .then(user => {
+        user.email = 'show@gmail.com';
+      })
+      .as('user');
+  });
+  it('fixtures and beforeEach', () => {
+    cy.visit('cypress/index.html');
+    cy.get('@user').then(user => {
+      cy.log(user);
+    });
+  });
+  it('readFile & writeFile command', () => {
+    cy.visit('cypress/index.html');
+
+    cy.readFile('example.txt');
+    cy.writeFile('example.txt', 'Cypress is the best');
   });
 });
