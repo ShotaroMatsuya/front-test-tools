@@ -24,4 +24,12 @@ describe('Request command suite', () => {
       expect(response.body[0].isComplete).to.be.false;
     });
   });
+  it('POST request', () => {
+    cy.request('POST', 'http://localhost:8080/todos', {
+      name: 'test1',
+      isComplete: false,
+    }).then(response => {
+      expect(response.status).to.eq(201);
+    });
+  });
 });
