@@ -10,4 +10,8 @@ describe('Todo UI testing ', () => {
     cy.get('.success').should('be.visible');
     cy.get('.todo-item').last().should('contain.text', 'First Todo');
   });
+
+  afterEach(() => {
+    cy.get('.delete-item').click({ multiple: true });
+  });
 });
