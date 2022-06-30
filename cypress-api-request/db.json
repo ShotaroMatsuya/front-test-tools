@@ -13,7 +13,7 @@
     {
       "name": "Contact Paul",
       "id": 3,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "name": "Go to the market",

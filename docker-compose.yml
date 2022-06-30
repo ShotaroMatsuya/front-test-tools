@@ -30,16 +30,16 @@ services:
 
   npm:
     build:
-      context: ./app
+      context: ./cypress-api-request
       dockerfile: Dockerfile
     working_dir: /app
     entrypoint: ['npm']
     volumes:
-      - ./app:/app
+      - ./cypress-api-request:/app
       # ローカルにバインドマウントしたくない場合
       # - /app/node_modules
       # ローカルにバインドマウントしたい場合
-      - ./app/node_modules:/app/node_modules
+      - ./cypress-api-request/node_modules:/app/node_modules
 
   # create-react-app
   create-react-app:
@@ -70,6 +70,5 @@ services:
       - 8080:8080
     entrypoint: 'npm run start:server'
     volumes:
-      - ./cypress-api-request/db.json:/app/db.json
-      - ./cypress-api-request/routes.json:/app/routes.json
+      - ./cypress-api-request:/app
       - ./cypress-api-request/node_modules:/app/node_modules
