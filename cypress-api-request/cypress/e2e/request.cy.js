@@ -43,7 +43,7 @@ describe('Request command suite', () => {
     cy.request('DELETE', 'http://localhost:8080/todos/2');
   });
 
-  it.only('Secure API request', () => {
+  it('Secure API request', () => {
     cy.request({
       method: 'GET',
       url: 'http://localhost:8080/courses',
