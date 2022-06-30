@@ -32,4 +32,14 @@ describe('Request command suite', () => {
       expect(response.status).to.eq(201);
     });
   });
+  it('PUT request', () => {
+    cy.request('PUT', 'http://localhost:8080/todos/1', {
+      name: 'Study Cypress',
+      id: 1,
+      isComplete: true,
+    });
+  });
+  it('DELETE request', () => {
+    cy.request('DELETE', 'http://localhost:8080/todos/2');
+  });
 });
