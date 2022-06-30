@@ -32,3 +32,31 @@ Cypress.Commands.add('addNewTodo', todo => {
     cy.get('.error').should('be.visible');
   }
 });
+
+Cypress.Commands.add('addDummyTodos', () => {
+  const todos = [
+    {
+      name: 'Learn cypress',
+      isComplete: false,
+    },
+    {
+      name: 'build framework',
+      isComplete: true,
+    },
+    {
+      name: 'shopping',
+      isComplete: false,
+    },
+    {
+      name: 'drink coffee',
+      isComplete: true,
+    },
+  ];
+  todos.forEach(todo => {
+    cy.request({
+      method: 'POST',
+      url: 'http://localhost:8080/todos',
+      body: todo,
+    });
+  });
+});
