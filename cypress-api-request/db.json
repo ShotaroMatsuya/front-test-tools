@@ -75,6 +75,14 @@
       "lastname": "Monge",
       "age": 32,
       "id": 4
+    },
+    {
+      "email": "shotaro@test.com",
+      "password": "$2a$10$Vptzdbs4sy2sImSBropnCuJHlAujOU3/.KOnKeVOpLurmzhEo3Kp.",
+      "firstname": "Sho",
+      "lastname": "Mat",
+      "age": 90,
+      "id": 5
     }
   ],
   "courses": [

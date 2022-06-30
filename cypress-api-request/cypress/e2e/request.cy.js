@@ -42,4 +42,19 @@ describe('Request command suite', () => {
   it('DELETE request', () => {
     cy.request('DELETE', 'http://localhost:8080/todos/2');
   });
+
+  it.only('Secure API request', () => {
+    cy.request({
+      method: 'GET',
+      url: 'http://localhost:8080/courses',
+      // headers: {
+      //   Authorization:
+      //     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNob3Rhcm9AdGVzdC5jb20iLCJpYXQiOjE2NTY2MDM4OTAsImV4cCI6MTY1NjYwNzQ5MCwic3ViIjoiNSJ9.ylweTfCko1a0b-I1aCxls--mS0WA1Xn9ZEhKoT9xtag',
+      // },
+      auth: {
+        bearer:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNob3Rhcm9AdGVzdC5jb20iLCJpYXQiOjE2NTY2MDM4OTAsImV4cCI6MTY1NjYwNzQ5MCwic3ViIjoiNSJ9.ylweTfCko1a0b-I1aCxls--mS0WA1Xn9ZEhKoT9xtag',
+      },
+    });
+  });
 });
