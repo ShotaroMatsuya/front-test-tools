@@ -14,4 +14,14 @@ describe('Request command suite', () => {
       expect(response.body[0].isComplete).to.be.false;
     });
   });
+  it('Get request with params', () => {
+    cy.request({
+      method: 'GET',
+      url: 'http://localhost:8080/todos',
+      qs: { id: 1 },
+    }).then(response => {
+      cy.log(response.statusText);
+      expect(response.body[0].isComplete).to.be.false;
+    });
+  });
 });
