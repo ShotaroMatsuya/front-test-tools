@@ -15,7 +15,16 @@ describe('Todo UI testing ', () => {
     cy.get('.todo-checkbox').check().should('be.checked');
     cy.get('.todo-checkbox').uncheck().should('not.be.checked');
   });
+
+  it('should delete a todo correctly', () => {
+    cy.addNewTodo('Third');
+    cy.get('.delete-item').click();
+  });
   afterEach(() => {
-    cy.get('.delete-item').click({ multiple: true });
+    cy.get('body').then($el => {
+      if ($el.find('.delete-item').length > 0) {
+        cy.get('.delete-item').click({ multiple: true });
+      }
+    });
   });
 });
