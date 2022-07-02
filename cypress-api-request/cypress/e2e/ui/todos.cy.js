@@ -31,11 +31,11 @@ describe('Todo UI testing ', () => {
     cy.addNewTodo('');
   });
 
-  // afterEach(() => {
-  //   cy.get('body').then($el => {
-  //     if ($el.find('.delete-item').length > 0) {
-  //       cy.get('.delete-item').click({ multiple: true });
-  //     }
-  //   });
-  // });
+  afterEach(() => {
+    cy.get('body').then($el => {
+      if ($el.find('.delete-item').length > 0) {
+        cy.get('.delete-item').click({ multiple: true });
+      }
+    });
+  });
 });

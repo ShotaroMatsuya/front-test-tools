@@ -1,16 +1,5 @@
 {
-  "todos": [
-    {
-      "name": "First Todo",
-      "id": 9224,
-      "isComplete": false
-    },
-    {
-      "name": "First Todo",
-      "id": 8003,
-      "isComplete": false
-    }
-  ],
+  "todos": [],
   "users": [
     {
       "email": "olivier@mail.com",

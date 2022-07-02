@@ -17,6 +17,8 @@
     "start:server": "json-server -p 8080 db.json -m ./node_modules/json-server-auth -r routes.json -H 0.0.0.0",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "e2e:chrome": "cypress run --browser chrome --headless",
+    "e2e:firefox": "cypress run --browser chrome --headless"
   }
 }
