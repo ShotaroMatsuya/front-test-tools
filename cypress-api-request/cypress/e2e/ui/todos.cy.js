@@ -13,7 +13,7 @@ describe('Todo UI testing ', () => {
     cy.wait('@postRequest').then(xhr => {
       expect(xhr.request.body.name).to.eql('First Todo');
     });
-    cy.get('.todo-itemsadfasdfsa').last().should('contain.text', 'First Todo');
+    cy.get('.todo-item').last().should('contain.text', 'First Todo');
   });
 
   it('should be able to toggle the status of a todo correctly', () => {
