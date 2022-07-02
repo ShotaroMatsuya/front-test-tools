@@ -4,7 +4,7 @@ describe('Todo UI testing ', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-  it.only('should add a new todo correctly', () => {
+  it('should add a new todo correctly', () => {
     // cy.intercept('POST', 'http://localhost:8080/todos','hello');
 
     cy.intercept('POST', 'http://localhost:8080/todos').as('postRequest');
