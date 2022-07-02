@@ -1,84 +1,14 @@
 {
   "todos": [
     {
-      "name": "build framework",
-      "isComplete": true,
-      "id": 20
+      "name": "First Todo",
+      "id": 9224,
+      "isComplete": false
     },
     {
-      "name": "drink coffee",
-      "isComplete": true,
-      "id": 22
-    },
-    {
-      "name": "build framework",
-      "isComplete": true,
-      "id": 24
-    },
-    {
-      "name": "drink coffee",
-      "isComplete": true,
-      "id": 26
-    },
-    {
-      "name": "build framework",
-      "isComplete": true,
-      "id": 28
-    },
-    {
-      "name": "drink coffee",
-      "isComplete": true,
-      "id": 30
-    },
-    {
-      "name": "build framework",
-      "isComplete": true,
-      "id": 32
-    },
-    {
-      "name": "drink coffee",
-      "isComplete": true,
-      "id": 34
-    },
-    {
-      "name": "build framework",
-      "isComplete": true,
-      "id": 36
-    },
-    {
-      "name": "drink coffee",
-      "isComplete": true,
-      "id": 38
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 39
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 40
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 41
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 42
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 43
-    },
-    {
-      "name": "todo1",
-      "isComplete": false,
-      "id": 44
+      "name": "First Todo",
+      "id": 8003,
+      "isComplete": false
     }
   ],
   "users": [

@@ -4,9 +4,15 @@ describe('Todo UI testing ', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-  it('should add a new todo correctly', () => {
+  it.only('should add a new todo correctly', () => {
+    // cy.intercept('POST', 'http://localhost:8080/todos','hello');
+
+    cy.intercept('POST', 'http://localhost:8080/todos').as('postRequest');
     // cy.get('.todo-input').type('First Todo').type('{enter}');
     cy.addNewTodo('First Todo');
+    cy.wait('@postRequest').then(xhr => {
+      expect(xhr.request.body.name).to.eql('First Todo');
+    });
     cy.get('.todo-item').last().should('contain.text', 'First Todo');
   });
 
@@ -25,11 +31,11 @@ describe('Todo UI testing ', () => {
     cy.addNewTodo('');
   });
 
-  afterEach(() => {
-    cy.get('body').then($el => {
-      if ($el.find('.delete-item').length > 0) {
-        cy.get('.delete-item').click({ multiple: true });
-      }
-    });
-  });
+  // afterEach(() => {
+  //   cy.get('body').then($el => {
+  //     if ($el.find('.delete-item').length > 0) {
+  //       cy.get('.delete-item').click({ multiple: true });
+  //     }
+  //   });
+  // });
 });
