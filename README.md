@@ -8,14 +8,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `docker-compose up --build first-react first-server`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+### `npx cypress run --record --key 956f624b-309a-45ad-a885-67aebb8a6f31`
+
+Launches the cypress test runner and output the reports to the cypress dashboard.
+
 ### `docker-compose up --build cypress`
 
 Build a container and run the Cypress test in container
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
