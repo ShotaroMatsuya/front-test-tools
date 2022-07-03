@@ -72,3 +72,8 @@ services:
     volumes:
       - ./cypress-api-request:/app
       - ./cypress-api-request/node_modules:/app/node_modules
+
+  cypress:
+    build:
+      context: ./cypress-api-request
+      dockerfile: Dockerfile.cypress
