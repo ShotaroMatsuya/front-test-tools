@@ -14,6 +14,7 @@ describe('Todo UI testing ', () => {
       expect(xhr.request.body.name).to.eql('First Todo');
     });
     cy.get('.todo-item').last().should('contain.text', 'First Todo');
+    cy.log('hello github integration');
   });
 
   it('should be able to toggle the status of a todo correctly', () => {
