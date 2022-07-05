@@ -72,3 +72,17 @@ services:
     volumes:
       - ./cypress-api-request:/app
       - ./cypress-api-request/node_modules:/app/node_modules
+
+  e2e:
+    image: cypress
+    build: ./e2e
+    container_name: cypress
+    depends_on:
+      - first-react
+    working_dir: /app
+    network_mode: host
+    environment:
+      - CYPRESS_baseUrl=http://localhost:3000
+    entrypoint: 'npx cypress run'
+    volumes:
+      - ./e2e:/app
