@@ -13,7 +13,7 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### `npx cypress run --record --key 956f624b-309a-45ad-a885-67aebb8a6f31`
+### `docker-compose run --rm e2e --record --key 956f624b-309a-45ad-a885-67aebb8a6f31`
 
 Launches the cypress test runner and output the reports to the cypress dashboard.
 
@@ -21,7 +21,9 @@ Launches the cypress test runner and output the reports to the cypress dashboard
 
 Build a container and run the Cypress test in container
 
-### `npm run build`
+### `docker-compose up --abort-on-container-exit --exit-code-from e2e --build e2e`
+
+Example running Cypress tests against Apache server via docker-compose
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.

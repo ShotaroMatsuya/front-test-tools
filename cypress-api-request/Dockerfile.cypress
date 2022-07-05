@@ -1,9 +1,0 @@
-FROM cypress/base:16.13.0
-
-WORKDIR /app
-RUN npm install cypress
-
-COPY . .
-
-RUN npm install
-RUN npm run build:and:test
