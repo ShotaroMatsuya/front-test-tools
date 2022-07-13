@@ -2,7 +2,9 @@ pipeline{
   agent {
     docker {
       image 'cypress/base:16.13.0'
-      args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+      args '-u 1000:1000 -v /var/run/docker.sock:/var/run/docker.sock'
+      alwaysPull false
+      reuseNode true
     }
   }
 
