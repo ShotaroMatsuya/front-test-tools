@@ -86,3 +86,10 @@ services:
     entrypoint: 'npx cypress run'
     volumes:
       - ./e2e:/app
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - ./jenkins_home:/var/jenkins_home

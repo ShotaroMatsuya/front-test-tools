@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.5.2
+Build-Jdk-Spec: 11
+Specification-Title: Pipeline: Basic Steps
+Specification-Version: 0.0
+Implementation-Title: Pipeline: Basic Steps
+Implementation-Version: 969.vc4ec3e4854b_f
+Group-Id: org.jenkins-ci.plugins.workflow
+Short-Name: workflow-basic-steps
+Long-Name: Pipeline: Basic Steps
+Url: https://github.com/jenkinsci/workflow-basic-steps-plugin
+Plugin-Version: 969.vc4ec3e4854b_f
+Hudson-Version: 2.332.1
+Jenkins-Version: 2.332.1
+Plugin-Dependencies: javax-mail-api:1.6.2-6,workflow-api:1182.v41475e53e
+ a_43,workflow-durable-task-step:1164.v2334ddcf48d0,workflow-step-api:62
+ 5.vd896b_f445a_f8,apache-httpcomponents-client-4-api:4.5.13-1.0,mailer:
+ 414.vcc4c33714601,structs:318.va_f3ccb_729b_71
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/workflow-basic-steps-plugin
+
