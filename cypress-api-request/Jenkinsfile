@@ -2,6 +2,7 @@ pipeline{
   agent {
     docker {
       image 'cypress/base:16.13.0'
+      args '-u root:root'
       alwaysPull false
       reuseNode true
     }
