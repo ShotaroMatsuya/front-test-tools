@@ -35,3 +35,11 @@ RUN curl -sSL https://get.docker.com/ | sh
 
 jenkins/jenkins イメージはデフォルトでは root 権限を持たないユーザによって実行されています。そのままではソケットにアクセスする権限がないため Permission error が起こってしまいます  
 以上の手順で Jenkins Pipeline にて agent に docker を指定することが出来ます。
+
+## デバッグ
+
+Execute org.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true in Jenkins's Script Console to debug.
+
+```java
+System.setProperty("org.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS", "true");
+```

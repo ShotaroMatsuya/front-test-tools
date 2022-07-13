@@ -7,6 +7,11 @@ pipeline{
   }
 
   stages {
+    stage('check logged in user') {
+      steps {
+        sh "whoami"
+      }
+    }
     stage('Download the dependencies') {
       steps {
         sh "npm install"
