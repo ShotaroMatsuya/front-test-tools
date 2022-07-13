@@ -1,0 +1,32 @@
+# 一般的に除外するもの
+*.swp
+
+# jenkins本体
+*.jar
+war
+
+# ログ、キャッシュ、内部のバックアップ、ローカルの情報
+*.log
+*.bak
+logs/
+org.jenkinsci.plugins.github.GitHubPlugin.cache/*
+jenkins.model.JenkinsLocationConfiguration.xml
+
+# ユーザ、権限、鍵
+.owner
+identity.key*
+secret.key*
+secrets
+users
+
+# 更新、プラグインの展開先
+plugins/*/
+updates
+
+# ジョブ
+jobs/*/*
+!jobs/*/config.xml
+workspace
+
+# 初期化の状態
+jenkins.install.*
