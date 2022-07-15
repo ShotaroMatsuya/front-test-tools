@@ -1,20 +1,16 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
-
+version: 2
 jobs:
-  test:
-    working_directory: ~/root/cypress-api-request
+  build:
     docker:
-      - image: node:14
+      - image: cypress/base:14.16.0
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/app/cypress-api-request
     steps:
       - checkout:
-          path: ~/root
-workflows:
-  build:
-    jobs:
-      - test
-      - cypress/run: # "run" job comes from "cypress" orb
-          record: true # record results on Cypress Dashboard
-          parallel: true # split all specs across machines
-          parallelism: 4 # use 4 CircleCI machines to finish quickly
+          path: ~/app
+      - run:
+          name: Install Dependencies and Running Tests
+          command: npm run build:and:test
+      - run: $(npm bin)/cypress run --record --key <record_key>
