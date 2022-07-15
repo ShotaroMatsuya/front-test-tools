@@ -3,7 +3,7 @@ WORKDIR /app
 # dependencies will be installed only if the package files change
 COPY package*.json .
 
-RUN CYPRESS_CACHE_FOLDER=./tmp/Cypress npm install
+RUN npm install
 
 # by setting CI environment variable we switch the Cypress install messages
 # to small "started / finished" and avoid 1000s of lines of progress messages

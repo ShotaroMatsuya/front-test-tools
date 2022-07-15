@@ -83,7 +83,7 @@ services:
     network_mode: host
     environment:
       - CYPRESS_baseUrl=http://localhost:3000
-    entrypoint: 'CYPRESS_CACHE_FOLDER=./tmp/Cypress npx cypress run'
+    entrypoint: 'npx cypress run'
     volumes:
       - ./e2e:/app
   jenkins:
