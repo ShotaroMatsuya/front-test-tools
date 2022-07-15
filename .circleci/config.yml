@@ -10,9 +10,13 @@ jobs:
     steps:
       - checkout:
           path: ~/app
-      - run:
+      - run: 
           name: Install Dependencies
           command: npm install
       - run:
           name: Running Tests
           command: npm run build:and:test
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
