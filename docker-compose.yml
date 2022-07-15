@@ -83,13 +83,17 @@ services:
     network_mode: host
     environment:
       - CYPRESS_baseUrl=http://localhost:3000
-    entrypoint: 'npx cypress run'
+    entrypoint: 'CYPRESS_CACHE_FOLDER=./tmp/Cypress npx cypress run'
     volumes:
       - ./e2e:/app
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:latest
+    build:
+      context: ./jenkins
+      network: host
     ports:
       - 8080:8080
+      - 50000:50000
     volumes:
-      - ./jenkins_home:/var/jenkins_home
+      - ./jenkins:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
