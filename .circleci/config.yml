@@ -9,14 +9,16 @@ workflows:
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
       - cypress/run:
+          yarn: true
           cache-key: >-
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
           working_directory: cypress-api-request
-          requires:
-            - cypress/install
-          store_artifacts: true
-          command: npm run build:and:test
-          parallel: true
-          parallelism: 2
-          group: 2 machines
+          # working_directory: cypress-api-request
+          # requires:
+          #   - cypress/install
+          # store_artifacts: true
+          # command: npm run build:and:test
+          # parallel: true
+          # parallelism: 2
+          # group: 2 machines
