@@ -15,7 +15,7 @@ workflows:
             }}
           working_directory: cypress-api-request
           # store_artifacts: true
-          # command: npm run build:and:test
+          command: npm run build:and:test
           # parallel: true
           # parallelism: 2
           # group: 2 machines
