@@ -6,7 +6,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          working_directory: e2e
+          # working_directory: cypress-api-request
           requires:
             - cypress/install
           store_artifacts: true
@@ -14,3 +14,6 @@ workflows:
           parallel: true
           parallelism: 2
           group: 2 machines
+          cache-key: >-
+            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
+            }}
