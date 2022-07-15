@@ -9,9 +9,9 @@ pipeline{
   }
 
   stages {
-    stage('check logged in user') {
+    stage('move to subdir') {
       steps {
-        sh "whoami"
+        sh "cd cypress-api-request"
       }
     }
     stage('Download the dependencies') {
