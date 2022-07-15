@@ -6,11 +6,11 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          working_directory: cypress-api-request
+          working_directory: e2e
           requires:
             - cypress/install
           store_artifacts: true
-          command: cd cypress-api-request & npm run build:and:test
+          command: npm run build:and:test
           parallel: true
           parallelism: 2
           group: 2 machines
