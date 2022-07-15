@@ -9,4 +9,6 @@ workflows:
   build:
     jobs:
       - cypress/run: # "run" job comes from "cypress" orb
-          command: cd cypress-api-request & npm run build:and:test
+          command: npm run build:and:test
+          working_directory: cypress-api-request
+          cache-key: 'cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json" }}'
