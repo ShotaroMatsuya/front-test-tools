@@ -1,30 +1,37 @@
-pipeline{
-  agent {
-    docker {
-      image 'cypress/base:16.13.0'
-      args '-u root:root'
-      alwaysPull false
-      reuseNode true
-    }
-  }
+pipeline {
+    agent {
+        docker {
+          image 'cypress/base:16.13.0'
+          args '-u root:root'
+        }
+      }
+    stages {
+        stage('Checkout') {
+            steps {
+              checkout([$class: 'GitSCM', 
+                branches: [[name: 'jenkins/integration']],
+                extensions: [
+                    [$class: 'SparseCheckoutPaths', 
+                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'/cypress-api-request']]]
+                    ],
+                userRemoteConfigs: [[url: 'https://github.com/ShotaroMatsuya/front-test-tools.git']]])
+              sh "ls -ltr"
+          }
+        }
+      stage('Download the dependencies') {
+        steps {
+          dir('cypress-api-request'){
+            sh "npm install"
+          }
+        }
+      }
 
-  stages {
-    stage('move to subdir') {
-      steps {
-        sh "cd cypress-api-request"
+      stage('Build and test') {
+        steps {
+          dir('cypress-api-request'){
+            sh "npm run build:and:test"
+          }
+        }
       }
     }
-    stage('Download the dependencies') {
-      steps {
-        sh "npm install"
-      }
-    }
-
-    stage('Build and test') {
-      steps {
-        sh "npm run build:and:test"
-      }
-    }
-  }
-
 }

@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start:frontend": "react-scripts start",
-    "start:server": "json-server -p 8080 db.json -m ./node_modules/json-server-auth -r routes.json -H 0.0.0.0",
+    "start:server:docker": "json-server -p 8080 db.json -m ./node_modules/json-server-auth -r routes.json -H 0.0.0.0",
+    "start:server": "json-server -p 8080 db.json -m ./node_modules/json-server-auth -r routes.json",
     "start": "npm-run-all --parallel start:server start:frontend",
     "cy:run": "npx cypress run --record --key 956f624b-309a-45ad-a885-67aebb8a6f31",
     "build:and:test": "start-server-and-test start http://localhost:3000 cy:run",
