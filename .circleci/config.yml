@@ -4,18 +4,15 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/install:
-          cache-key: >-
-            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
-            }}
+      - cypress/install
       - cypress/run:
           yarn: true       
           cache-key: >-
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
           working_directory: cypress-api-request
-          # store_artifacts: true
+          store_artifacts: true
           command: npm run build:and:test
-          # parallel: true
-          # parallelism: 2
-          # group: 2 machines
+          parallel: true
+          parallelism: 2
+          group: 2 machines
