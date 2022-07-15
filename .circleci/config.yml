@@ -12,7 +12,7 @@ workflows:
           cache-key: >-
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
-          working_directory: e2e
+          working_directory: cypress-api-request
           requires:
             - cypress/install
           store_artifacts: true
