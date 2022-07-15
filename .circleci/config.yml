@@ -9,9 +9,7 @@ workflows:
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
       - cypress/run:
-          yarn: true
-          requires:
-            - cypress/install          
+          yarn: true       
           cache-key: >-
             cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
             }}
