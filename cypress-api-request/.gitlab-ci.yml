@@ -1,0 +1,7 @@
+image: shotaromatsuya/cypress-base:16.14.0
+
+test:
+  stage: test
+  script:
+    - npm install
+    - npm run build:and:test
