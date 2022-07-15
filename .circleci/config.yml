@@ -10,7 +10,10 @@ jobs:
     steps:
       - checkout:
           path: ~/app
+      - run: 
+          name: Install Dependencies
+          command: npm install
       - run:
-          name: Install Dependencies and Running Tests
+          name: Running Tests
           command: npm run build:and:test
-      - run: $(npm bin)/cypress run --record --key <record_key>
+      
