@@ -12,7 +12,7 @@ pipeline {
                 branches: [[name: 'jenkins/integration']],
                 extensions: [
                     [$class: 'SparseCheckoutPaths', 
-                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'/cypress-api-request']]]
+                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'/cypress-api-request'],[path: '/e2e']]]
                     ],
                 userRemoteConfigs: [[url: 'https://github.com/ShotaroMatsuya/front-test-tools.git']]])
               sh "ls -ltr"
