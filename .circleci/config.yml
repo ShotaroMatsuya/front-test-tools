@@ -4,9 +4,15 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/install
+      - cypress/install:
+          cache-key: >-
+            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
+            }}
       - cypress/run:
-          # working_directory: cypress-api-request
+          cache-key: >-
+            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
+            }}
+          working_directory: e2e
           requires:
             - cypress/install
           store_artifacts: true
@@ -14,6 +20,3 @@ workflows:
           parallel: true
           parallelism: 2
           group: 2 machines
-          cache-key: >-
-            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
-            }}
