@@ -1,18 +1,41 @@
-version: 2
-jobs:
+# version: 2
+# jobs:
+#   build:
+#     docker:
+#       - image: cypress/base:14.16.0
+#         environment:
+#           ## this enables colors in the output
+#           TERM: xterm
+#     working_directory: ~/app/cypress-api-request
+#     steps:
+#       - checkout:
+#           path: ~/app
+#       - run:
+#           name: Install Dependencies
+#           command: npm install
+#       - run:
+#           name: Running Tests
+#           command: npm run build:and:test
+
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/app/cypress-api-request
-    steps:
-      - checkout:
-          path: ~/app
-      - run:
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Running Tests
+    jobs:
+      - cypress/install:
+          cache-key: >-
+            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
+            }}
+      - cypress/run:
+          cache-key: >-
+            cache-{{ arch }}-{{ .Branch }}-{{ checksum "cypress-api-request/package.json"
+            }}
+          working_directory: cypress-api-request
+          # requires:
+          #   - cypress/install
+          # store_artifacts: true
           command: npm run build:and:test
+          # parallel: true
+          # parallelism: 2
+          # group: 2 machines
