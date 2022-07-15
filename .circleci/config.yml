@@ -1,22 +1,15 @@
-version: 2
-jobs:
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: cypress/base:14.16.0
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/app/cypress-api-request
-    steps:
-      - checkout:
-          path: ~/app
-      - run: 
-          name: Install Dependencies
-          command: npm install
-      - run:
-          name: Running Tests
-          command: npm run build:and:test
-      - store_artifacts:
-          path: ../e2e/cypress/videos
-      - store_artifacts:
-          path: ../e2e/cypress/screenshots
+    jobs:
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          store_artifacts: true
+          command: cd cypress-api-request & npm run build:and:test
+          parallel: true
+          parallelism: 2
+          group: 2 machines
