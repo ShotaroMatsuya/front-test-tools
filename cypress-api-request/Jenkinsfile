@@ -1,0 +1,37 @@
+pipeline {
+    agent {
+        docker {
+          image 'shotaromatsuya/cypress-base:16.14.0'
+          args '-u root:root'
+        }
+      }
+    stages {
+        stage('Checkout') {
+            steps {
+              checkout([$class: 'GitSCM', 
+                branches: [[name: 'jenkins/integration']],
+                extensions: [
+                    [$class: 'SparseCheckoutPaths', 
+                    sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'/cypress-api-request'],[path: '/e2e']]]
+                    ],
+                userRemoteConfigs: [[url: 'https://github.com/ShotaroMatsuya/front-test-tools.git']]])
+              sh "ls -ltr"
+          }
+        }
+      stage('Download the dependencies') {
+        steps {
+          dir('cypress-api-request'){
+            sh "npm install"
+          }
+        }
+      }
+
+      stage('Build and test') {
+        steps {
+          dir('cypress-api-request'){
+            sh "npm run build:and:test"
+          }
+        }
+      }
+    }
+}
