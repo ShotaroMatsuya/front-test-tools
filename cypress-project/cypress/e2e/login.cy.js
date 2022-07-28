@@ -8,17 +8,13 @@ describe('Test all login functionalities', () => {
   });
 
   it('login with valid email and password for a normal user', () => {
-    LoginComponent.emailField().type('user');
-    LoginComponent.passwordFiled().type('user');
-    LoginComponent.loginButton().click();
+    LoginComponent.performLogin('user', 'user');
     cy.get('[href="/courses"]').click();
     cy.url().should('contain', '/courses');
     HeaderComponent.logoutButton().should('be.visible');
   });
   it('should login correctly as admin user', () => {
-    LoginComponent.emailField().type('admin');
-    LoginComponent.passwordFiled().type('admin');
-    LoginComponent.loginButton().click();
+    LoginComponent.performLogin('admin', 'admin');
     cy.get('[href="/courses"]').click();
     cy.url().should('contain', '/courses');
 
