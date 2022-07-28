@@ -17,6 +17,10 @@
     {
       "name": "hi",
       "id": 1
+    },
+    {
+      "name": "Learn Appium",
+      "id": 2
     }
   ]
 }

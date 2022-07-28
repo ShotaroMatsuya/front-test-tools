@@ -9,4 +9,5 @@ module.exports = defineConfig({
     runMode: 3,
     openMode: 0,
   },
+  // experimentalStudio: true, //this feature was removed from v10
 });
