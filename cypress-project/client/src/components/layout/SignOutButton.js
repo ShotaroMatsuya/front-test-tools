@@ -7,7 +7,10 @@ const SignOutButton = ({ logout }, context) =>
       data-cy="signout-button"
       className="button"
       onClick={() => {
-        logout().then(() => context.router.transitionTo('/'));
+        logout().then(() => {
+          //   context.router.transitionTo('/');
+          context.router.history.push('/notloggedin');
+        });
       }}
     >
       Sign out

@@ -11,13 +11,11 @@ describe('Test all login functionalities', () => {
   it('login with valid email and password for a normal user', () => {
     LoginComponent.performLogin('user', 'user');
     HeaderComponent.coursesButton().click();
-    Utils.checkURL().should('contain', '/courses');
     HeaderComponent.logoutButton().should('be.visible');
   });
   it('should login correctly as admin user', () => {
     LoginComponent.performLogin('admin', 'admin');
     HeaderComponent.coursesButton().click();
-    Utils.checkURL().should('contain', '/courses');
 
     HeaderComponent.logoutButton().should('be.visible');
     CourseComponent.deleteButton().should('be.visible');
