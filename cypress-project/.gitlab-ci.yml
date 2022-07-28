@@ -1,0 +1,15 @@
+
+image: cypress/base:12
+
+test:
+    stage: test
+    parallel: 2
+    script:
+        - npm install
+        - cd client
+        - npm install
+        - cd ..
+        - npm run test
+    artifacts:
+        paths:
+            - cypress/videos
