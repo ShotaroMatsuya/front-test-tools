@@ -6,15 +6,19 @@
   "scripts": {
     "start": "run-p server client",
     "server": "node server.js",
-    "client": "node client.js"
+    "client": "node client.js",
+    "cy:run": "npx cypress run --record --key 4f40f063-271d-4892-a78c-7fcbe9548d7c",
+    "test": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "author": "sho-matsuya",
   "license": "ISC",
   "dependencies": {
     "basic-auth": "^1.1.0",
+    "cypress": "^10.3.1",
     "express-jwt": "^5.1.0",
     "json-server": "^0.9.1",
-    "jsonwebtoken": "^7.1.9"
+    "jsonwebtoken": "^7.1.9",
+    "start-server-and-test": "^1.14.0"
   },
   "standard": {
     "env": [
