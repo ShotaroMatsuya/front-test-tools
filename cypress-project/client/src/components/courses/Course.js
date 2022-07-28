@@ -5,7 +5,7 @@ const Course = ({ course, onDelete, userCanEditCourses }) => (
   <div className="courses-list-container">
     <li>
       <div className="course-list-element">
-        <label>{course.name}</label>
+        <label data-cy="course-name">{course.name}</label>
         {userCanEditCourses && (
           <button
             data-cy="delete-button"
