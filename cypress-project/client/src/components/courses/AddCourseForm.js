@@ -35,6 +35,7 @@ class AddCourseForm extends Component {
           Name:
           <br />
           <input
+            data-cy="new-task-input"
             className="add-course-input"
             onChange={this.onInputChange}
             placeholder="Enter name"
@@ -42,7 +43,12 @@ class AddCourseForm extends Component {
             value={this.state.fields.name}
             type="text"
           />
-          <input className="add-course" type="submit" value="Add Course" />
+          <input
+            data-cy="new-task-button"
+            className="add-course"
+            type="submit"
+            value="Add Course"
+          />
         </form>
       </div>
     );
