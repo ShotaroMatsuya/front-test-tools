@@ -30,20 +30,20 @@ services:
 
   npm:
     build:
-      context: ./cypress-project
+      context: ./component-test
       dockerfile: Dockerfile
     working_dir: /app
     entrypoint: ['npm']
     volumes:
-      - ./cypress-project:/app
+      - ./component-test:/app
       # ローカルにバインドマウントしたくない場合
       # - /app/node_modules
       # ローカルにバインドマウントしたい場合
-      - ./cypress-project/node_modules:/app/node_modules
+      - ./component-test/node_modules:/app/node_modules
 
   # create-react-app
   create-react-app:
-    image: node:16
+    image: node:14
     working_dir: /
     entrypoint: 'npx create-react-app app'
     volumes:
@@ -101,18 +101,6 @@ services:
   # Second React App(Cypress)
   second-react:
     build:
-      context: ./cypress-project/client
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-    entrypoint: 'npm run start:frontend'
-    volumes:
-      - ./cypress-project/client:/app
-      - ./cypress-project/client/node_modules:/app/node_modules
-    depends_on:
-      - second-server
-  second-server:
-    build:
       context: ./cypress-project
       dockerfile: Dockerfile
     ports:
@@ -121,3 +109,14 @@ services:
     volumes:
       - ./cypress-project:/app
       - ./cypress-project/node_modules:/app/node_modules
+
+  # Third React App(Cypress)
+  third-react:
+    build:
+      context: ./component-test
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./component-test:/app
+      - ./component-test/node_modules:/app/node_modules
