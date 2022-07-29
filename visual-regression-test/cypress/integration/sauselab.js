@@ -8,4 +8,7 @@ describe('SauseLab Landing page', () => {
   it('should load the page correctly', () => {
     cy.matchImageSnapshot('Full Page'); // 最初はsnapshotを作成し、以降のテストではsnapshotと比較する
   });
+  it('the logo should be displayed correctly', () => {
+    cy.get('.login_logo').matchImageSnapshot('logo');
+  });
 });
