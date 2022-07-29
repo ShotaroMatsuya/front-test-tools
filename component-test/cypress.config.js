@@ -4,7 +4,7 @@ module.exports = {
       // implement node event listeners here
     },
     component: {
-      specPattern: 'src/**/*.cy.jsx',
+      specPattern: 'src/tests/*.cy.jsx',
     },
   },
 };
