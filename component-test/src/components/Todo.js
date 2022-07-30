@@ -2,8 +2,7 @@ import React from 'react';
 
 const Todo = props => (
   <div>
-    <h4>{props.todo.title}</h4>
-    <p>{props.todo.completed}</p>
+    <h4 data-cy="title">{props.todo.title}</h4>
   </div>
 );
 

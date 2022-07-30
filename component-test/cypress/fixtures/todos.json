@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Learn Cypress",
+    "completed": true
+  },
+  {
+    "id": 2,
+    "title": "Play football",
+    "completed": true
+  },
+  {
+    "id": 3,
+    "title": "Drink water",
+    "completed": true
+  }
+]
