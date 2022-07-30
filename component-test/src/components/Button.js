@@ -4,7 +4,9 @@ const Button = () => {
   const [text, setText] = useState('');
 
   return (
-    <button onClick={() => setText('Loading...')}>{text || 'Click me'}</button>
+    <button data-cy="button" onClick={() => setText('Loading...')}>
+      {text || 'Click me'}
+    </button>
   );
 };
 
